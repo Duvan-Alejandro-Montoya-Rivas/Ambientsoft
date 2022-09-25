@@ -41,7 +41,7 @@ public class GestorEmpresa {
     int cont_EN=0;
     int cont_ET=0;
     int cont_ED=0;
-    int cont_E_NE=0;
+    int cont_END=0;
     public Empresa actualizarEmpresa(Long nit, Empresa empresa){
         Empresa empresas = empresaRepositorio.findById(nit).get();
         if (cont_EN==0 || empresa.getNombreEmpresa()!=null){
@@ -71,12 +71,13 @@ public class GestorEmpresa {
             }
         }
 
-        if (cont_E_NE==0 || empresa.getNumeroEmpleados()!=0){
-            empresas.setNumeroEmpleados(empresa.getNumeroEmpleados());
-            if (empresa.getNumeroEmpleados()!=0){
-                cont_E_NE=1;
+        if (cont_END==0 || empresa.getDocumentoEmpresa()!=null){
+            empresas.setDocumentoEmpresa(empresa.getDocumentoEmpresa());
+            if (empresa.getDocumentoEmpresa()!=null){
+                cont_END=1;
             }
         }
+
 
         empresas.setUpdatedAt(LocalDateTime.now());
         empresaRepositorio.save(empresas);

@@ -42,14 +42,13 @@ public class GestorMovimiento {
         return gestorMovimientoRepositorio.findByNit(nit);
     }
 
-    public MovimientoDinero actualizarNombreMovimiento(Long nit, MovimientoDinero caveMovimiento){
-        MovimientoDinero MD = gestorMovimientoRepositorio.findById(caveMovimiento.getId_MovimientoDinero()).get();
-        MD.setCaveMovimiento(caveMovimiento.getCaveMovimiento());
+    public MovimientoDinero actualizarNombreMovimiento(Long nit, MovimientoDinero Movimiento){
+        MovimientoDinero MD = gestorMovimientoRepositorio.findById(Movimiento.getId_MovimientoDinero()).get();
+        MD.setConceptoMovimiento(Movimiento.getConceptoMovimiento());
         gestorMovimientoRepositorio.save(MD);
         return MD;
     }
 
-    int cont_cave=0;
     int cont_Monto=0;
     int cont_TM=0;
     int cont_CM=0;
@@ -57,12 +56,6 @@ public class GestorMovimiento {
     public MovimientoDinero actualizarMovimiento(Long nit, MovimientoDinero GM){
         MovimientoDinero MD = gestorMovimientoRepositorio.findById(GM.getId_MovimientoDinero()).get();
 
-        if (cont_cave==0 || GM.getCaveMovimiento()!=null){
-            MD.setCaveMovimiento(GM.getCaveMovimiento());
-            if (GM.getCaveMovimiento()!=null){
-                cont_cave=1;
-            }
-        }
 
         if (cont_Monto==0 || GM.getMontoMovimiento()!=0){
             MD.setMontoMovimiento(GM.getMontoMovimiento());

@@ -4,6 +4,7 @@ import com.AmbientSoft.main.Enums.Tipo;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,5 +23,12 @@ public class Empleado {
     private String correo;
     @Column(name="rol")
     private Tipo rol;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="createdAt")
+    private LocalDateTime createdAt;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="updatedAt")
+    private LocalDateTime updatedAt;
 
 }

@@ -21,11 +21,14 @@ public class Perfil {
     private String imagen;
     @Column(name="telefono")
     private String telefono;
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="createdAt")
     private LocalDateTime createdAt;
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
+
+
 
 }

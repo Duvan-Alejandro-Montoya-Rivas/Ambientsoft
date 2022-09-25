@@ -18,12 +18,13 @@ public class Empresa {
     private Long nit_Empresa;
     @Column(name="nombreEmpresa")
     private String nombreEmpresa;
+    @Column(name="numeroDocumentoEmpresa")
+    private String documentoEmpresa;
     @Column(name="telefono")
     private long telefono;
     @Column(name="direccion")
     private String direccion;
-    @Column(name="numeroEmpleados")
-    private int numeroEmpleados;
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="createdAt")
     private LocalDateTime createdAt;
