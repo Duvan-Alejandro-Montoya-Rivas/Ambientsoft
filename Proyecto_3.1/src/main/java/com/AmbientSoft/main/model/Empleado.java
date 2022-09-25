@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,7 +20,7 @@ public class Empleado {
     private Long id_empleado;
     @Column(name="nombreEmpleado")
     private String nombreEmpleado;
-    @Column(name="correo")
+    @Column(name="correo",unique = true)
     private String correo;
     @Column(name="rol")
     private Tipo rol;
@@ -30,5 +31,12 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
+
+    @OneToOne(mappedBy = "empleado")
+    private Perfil perfil;
+    @ManyToOne
+    private Empresa empresa;
+    @OneToMany(mappedBy = "empleado")
+    private List<MovimientoDinero> movimientos;
 
 }

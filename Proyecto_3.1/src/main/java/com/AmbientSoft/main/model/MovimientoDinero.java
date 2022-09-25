@@ -37,4 +37,9 @@ public class MovimientoDinero {
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
 
+    @ManyToOne
+    private Empresa empresa;
+    @ManyToOne
+    private Empleado empleado;
+
 }

@@ -2,7 +2,11 @@ package com.AmbientSoft.main.model;
 
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 import lombok.*;
+
+
 import javax.persistence.*;
 
 @Entity
@@ -16,9 +20,9 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "nit_Empresa", nullable = false)
     private Long nit_Empresa;
-    @Column(name="nombreEmpresa")
+    @Column(name="nombreEmpresa",unique = true)
     private String nombreEmpresa;
-    @Column(name="numeroDocumentoEmpresa")
+    @Column(name="numeroDocumentoEmpresa",unique = true)
     private String documentoEmpresa;
     @Column(name="telefono")
     private long telefono;
@@ -31,4 +35,9 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Empleado> empleados;
+    @OneToMany(mappedBy = "empresa")
+    private List<MovimientoDinero> movimientos;
 }

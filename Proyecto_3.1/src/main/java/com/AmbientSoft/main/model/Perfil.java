@@ -29,6 +29,9 @@ public class Perfil {
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
 
+    @OneToOne
+    private Empleado empleado;
+
 
 
 }
