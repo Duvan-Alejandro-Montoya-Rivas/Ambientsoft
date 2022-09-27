@@ -3,24 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=3.0, maximum-scale=1.0, minimum-scale=3.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>AmbientSoft</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <style type="text/css">
-    #texto{display:none;}
-    </style>
+    <style>
+h1 {
+  color: black;
+  font-family: broadway;
+  font-size: 2000%;
+  border: 2px solid powderblue;
+  padding: 30px;
+}
+p {outline-color:black;}
+p.double {outline-style: double;}
+b{
+  border: 2px solid powderblue;
+  color: gray;
+  font-family: century gothic;
+  font-size: 200%;
+}
+body {
+  background-image: url("C:\User\Juan Montoya\Downloads\Proyecto_3.6");
+}
+
+</style>
+
 </head>
 <body>
 <main>
-    <div class="px-4 py-5 my-5 text-center">
+    <div class="px-6 py-10 my-10 text-center">
         <img src="img/Software.png" class="d-block mx-auto mb-4" height="100" alt="Software"/>
-        <h1 class="display-5 fw-bold">AmbientSoft</h1>
+        <h1 class="display-1 fw-bold">AmbientSoft</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Bienvenido al proyecto de AmbientSoft de Springboot</p>
             <div sec:authorize="!isAuthenticated()">
-            <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>
+           <!--<a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>-->
+                <a href="http://localhost:63342/Proyecto_3.6/Templates/tasks.html" class="btn btn-primary btn-lg px-6 gap-3">Ingresar</a>
             </div>
             <div sec:authorize="isAuthenticated()">
                 <h3 th:text="'Bienvenido, ' + ${Usuario.getCorreo}"></h3>
@@ -31,10 +51,10 @@
                 <button type="button" id="ver" class="btn btn-outline-secondary btn-lg px-4">Más información</button>
                 <br>
                 <br>
-                <p class="lead mb-4" id="texto">Este es un proyecto en colaboración para los movimientos de transacción
+                <b class="lead mb-4" id="texto">Este es un proyecto en colaboración para los movimientos de transacción
                     de empresas el cual fue desarrollado durante 4 sprint complementando su estructura atraves del back-end
                     y el front-end durante el transcurso del ciclo.
-                </p>
+                </b>
 
                <script>
                   $(function(){
