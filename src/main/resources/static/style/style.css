@@ -41,14 +41,7 @@ b{
 
 
 }
-.botonIngresar{
-    background-color: #330867;
-    padding: 8px;
-    border-radius: 15%;
-    color: white;
-    text-decoration: none;
-}
-.botonContinuar{
+.botones{
     background-color: #330867;
     padding: 8px;
     border-radius: 15%;
