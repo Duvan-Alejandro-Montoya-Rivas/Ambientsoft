@@ -1,0 +1,57 @@
+
+body{
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    text-align: center;
+    width: 100%;
+    /*height: 745px;*/
+    height:100vh;
+}
+b{
+    border: 2px solid powderblue;
+    color: gray;
+    font-family: century gothic;
+    font-size: 200%;
+}
+
+.logo{
+    width: 600px;
+    height: 300px;
+}
+
+.titulo{
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 40px;
+}
+
+.titulo2{
+    font-family: "Courier New";
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
+
+.contenedorBotones{
+    display:center;
+}
+.divContinuar{
+
+}
+.divIngresar{
+
+
+}
+.botonIngresar{
+    background-color: #330867;
+    padding: 8px;
+    border-radius: 15%;
+    color: white;
+    text-decoration: none;
+}
+.botonContinuar{
+    background-color: #330867;
+    padding: 8px;
+    border-radius: 15%;
+    color: white;
+    text-decoration: none;
+}
