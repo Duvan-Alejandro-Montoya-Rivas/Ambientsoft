@@ -26,13 +26,13 @@
 
                 <div class="contenedorBotones">
                     <!--Boton ingresar-->
-                    <div class="divIngresar">
-                   <!--<a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>-->
-                        <a href="../src/main/resources/Templates/tasks.html" class="botonIngresar">Ingresar</a>
+                    <div sec:authorize="!isAuthenticated()" class="divIngresar">
+<!--                   <a  class="btn btn-primary btn-lg px-4 gap-3">Ingresar</a>-->
+                        <a th:href="@{/oauth2/authorization/auth0}" href="../src/main/resources/Templates/tasks.html" class="botonIngresar">Ingresar</a>
                     </div>
                     <!--Boton Continuar-->
-                    <div class="divContinuar">
-<!--                        <h3 th:text="'Bienvenido, ' + ${Usuario.getCorreo}"></h3>-->
+                    <div sec:authorize="isAuthenticated()" class="divContinuar">
+                        <h3 th:text="'Bienvenido, ' + ${Usuario.getCorreo}"></h3>
                         <a th:href="@{/tasks}" class="botonContinuar">Continuar</a>
                     <div class="botonInformacion">
                         <!--Boton informacion-->
