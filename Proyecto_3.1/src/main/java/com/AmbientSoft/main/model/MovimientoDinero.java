@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -36,9 +37,10 @@ public class MovimientoDinero {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
-
+    @Nullable
     @ManyToOne
     private Empresa empresa;
+    @Nullable
     @ManyToOne
     private Empleado empleado;
 
