@@ -44,4 +44,5 @@ public class EmpresaController {
     public List<Empresa> quitarUnaEmpresa(@PathVariable("nit")Long identificadorEliminado){
         return gestorEmpresa.eliminarEmpresa(identificadorEliminado);
     }
+
 }
