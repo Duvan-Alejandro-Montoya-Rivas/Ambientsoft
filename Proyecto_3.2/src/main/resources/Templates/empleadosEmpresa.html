@@ -6,7 +6,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <title>Movimientos</title>
+  <title>Empleados</title>
 </head>
 <body>
 
@@ -53,40 +53,36 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
           <p></p>
 
-          <h2>Movimientos de dinero</h2>
+          <h2>Empleados</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Monto</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Concepto</th>
-                <th scope="col">Nombre Empleado</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Rol</th>
                 <th scope="col">Nombre Empresa</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
+                <th scope="col">Movimientos</th>
+
 
               </tr>
               </thead>
               <tbody>
-              <tr th:each="movimiento: ${listamovimientos}">
-                <td th:text="${movimiento.id_MovimientoDinero}"></td>
-                <td th:text="${movimiento.montoMovimiento}"></td>
-                <td th:text="${movimiento.tipoMonto}"></td>
-                <td th:text="${movimiento.conceptoMovimiento}"></td>
-                <td th:text="${movimiento.empleado.getNombreEmpleado()}"></td>
-                <td th:text="${movimiento.empresa.getNombreEmpresa()}"></td>
+              <tr th:each="empleados: ${listaempleadosempresa}">
+                <td th:text="${empleados.id_empleado}"></td>
+                <td th:text="${empleados.nombreEmpleado}"></td>
+                <td th:text="${empleados.correo}"></td>
+                <td th:text="${empleados.rol}"></td>
+                <td th:text="${empleados.empresa.getNombreEmpresa()}"></td>
+                <td th:text="${empleados.movimientos.size()}"></td>
 
-                <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarMovimiento/{id}(id=${movimiento.id_MovimientoDinero})}">Editar</a></button></td>
-                <td><button type="button" class="btn btn-danger"><a th:href="@{/EliminarMovimiento/{id}(id=${movimiento.id_MovimientoDinero})}">Eliminar</a></button></td>
 
               </tr>
               </tbody>
             </table>
+            <a href="javascript: history.go(-1)" class="btn btn-info" role="button">Atrás</a>
 
-            <!-- crear un boton que sirva para agregar nuevos movimientos -->
-            <button type="button" class="btn btn-info"><a th:href="@{/AgregarMovimiento}">Agregar Nuevo Movimiento</a></button>
             <br><br>
 
           </div>

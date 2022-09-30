@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Editar Empleado</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+        a{
+            color:white;
+        }
+        a:hover {
+            color: black;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+  <h1> Edite aqui los datos del Empleado</h1>
+  <br>
+  <!--Crear formulario para llenar los datos del empleado y guardarlo en el objeto emp -->
+  <form th:action="@{/ActualizarEmpleado}" th:object="${emp}" method="post">
+
+    <!--Campo para id del empleado-->
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3" for="id_empleado">Id del Empleado:</label>
+        <div class="col-md-6">
+          <input type="text" th:field="*{id_empleado}" class="form-control" id="id_empleado" required="required" readonly></div>
+      </div>
+    </div>
+
+
+
+    <!--Campo para nombre-->
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3" for="nombreEmpleado">Nombre:</label>
+        <div class="col-md-6">
+          <input type="text" th:field="*{nombreEmpleado}" class="form-control" id="nombreEmpleado" required="required"></div>
+      </div>
+    </div>
+
+    <!--Campo para tipo de correo-->
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3" for="correo">Correo:</label>
+        <div class="col-md-6">
+          <input type="text" th:field="*{correo}" class="form-control" id="correo" required="required"></div>
+      </div>
+    </div>
+
+    <!--Campo para rol-->
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3" for="rol">Rol:</label>
+        <div class="col-md-6">
+          <input list="listas" th:field="*{rol}" class="form-control" id="rol" required="required"></div>
+      </div>
+    </div>
+
+    <datalist id="listas">
+      <option value=administrador>
+      <option value=operativo>
+
+    </datalist>
+
+
+    <!--Campo para NIT empresa-->
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3" for="empresa">Id de la Empresa:</label>
+        <div class="col-md-6">
+          <input type="text" th:field="*{empresa}" class="form-control" id="empresa" required="required"></div>
+      </div>
+    </div>
+
+
+    <!--Boton para enviar todo y ejecutar accion -->
+    <div class="row">
+      <div class="col-md-2">
+        <button class="btn btn-success">Actualizar Empleado</button>
+      </div>
+    </div>
+
+  </form>
+
+  <br>
+  <a href="javascript: history.go(-1)" class="btn btn-info" role="button">Atrás</a>
+
+</div>
+</body>
+</html>

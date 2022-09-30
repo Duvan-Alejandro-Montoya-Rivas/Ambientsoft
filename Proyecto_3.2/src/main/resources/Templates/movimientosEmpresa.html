@@ -64,13 +64,11 @@
                 <th scope="col">Concepto</th>
                 <th scope="col">Nombre Empleado</th>
                 <th scope="col">Nombre Empresa</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
 
               </tr>
               </thead>
               <tbody>
-              <tr th:each="movimiento: ${listamovimientos}">
+              <tr th:each="movimiento: ${listamovimientosempresa}">
                 <td th:text="${movimiento.id_MovimientoDinero}"></td>
                 <td th:text="${movimiento.montoMovimiento}"></td>
                 <td th:text="${movimiento.tipoMonto}"></td>
@@ -78,15 +76,12 @@
                 <td th:text="${movimiento.empleado.getNombreEmpleado()}"></td>
                 <td th:text="${movimiento.empresa.getNombreEmpresa()}"></td>
 
-                <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarMovimiento/{id}(id=${movimiento.id_MovimientoDinero})}">Editar</a></button></td>
-                <td><button type="button" class="btn btn-danger"><a th:href="@{/EliminarMovimiento/{id}(id=${movimiento.id_MovimientoDinero})}">Eliminar</a></button></td>
 
               </tr>
               </tbody>
             </table>
 
-            <!-- crear un boton que sirva para agregar nuevos movimientos -->
-            <button type="button" class="btn btn-info"><a th:href="@{/AgregarMovimiento}">Agregar Nuevo Movimiento</a></button>
+            <a href="javascript: history.go(-1)" class="btn btn-info" role="button">Atrás</a>
             <br><br>
 
           </div>

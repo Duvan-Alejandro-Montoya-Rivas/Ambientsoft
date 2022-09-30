@@ -53,6 +53,9 @@ public class GestorMovimiento {
     int cont_TM=0;
     int cont_CM=0;
     int cont_Nit=0;
+    int cont_Empresa=0;
+    int cont_Empleado=0;
+
     public MovimientoDinero actualizarMovimiento(Long nit, MovimientoDinero GM){
         MovimientoDinero MD = gestorMovimientoRepositorio.findById(GM.getId_MovimientoDinero()).get();
 
@@ -85,8 +88,50 @@ public class GestorMovimiento {
             }
         }
 
+        if (cont_Empresa==0 || GM.getEmpresa()!=null){
+            MD.setEmpresa(GM.getEmpresa());
+            if (GM.getEmpresa()!=null){
+                cont_Empresa=1;
+            }
+        }
+
+        if (cont_Empleado==0 || GM.getEmpleado()!=null){
+            MD.setEmpleado(GM.getEmpleado());
+            if (GM.getEmpleado()!=null){
+                cont_Empleado=1;
+            }
+        }
+
         gestorMovimientoRepositorio.save(MD);
         return MD;
+    }
+    public boolean saveOrUpdateMovimiento(MovimientoDinero movimiento){
+        MovimientoDinero emp=gestorMovimientoRepositorio.save(movimiento);
+        if (gestorMovimientoRepositorio.findById(movimiento.getId_MovimientoDinero())!=null){
+            return true;
+        }
+        return false;
+    }
+
+    public MovimientoDinero getMovimientoById(Long id){
+        return gestorMovimientoRepositorio.findById(id).get();
+    }
+
+    public boolean deleteMovimiento(Long id){
+        gestorMovimientoRepositorio.deleteById(id);  //Eliminar
+
+        if (gestorMovimientoRepositorio.findById(id)!=null){  //Verificacion del servicio eliminacion
+            return true;
+        }
+        return false;
+    }
+
+    public List<MovimientoDinero> getMovimientosEmpresa(String nit_Empresa){
+        return gestorMovimientoRepositorio.findByEmpresaNombreEmpresa(nit_Empresa);
+    }
+
+    public List<MovimientoDinero> getMovimientosEmpleado(String nit_Empleado){
+        return gestorMovimientoRepositorio.findByEmpleadoNombreEmpleado(nit_Empleado);
     }
 
     public List<MovimientoDinero> eliminarMovimiento(Long id){
